@@ -5,7 +5,7 @@ const App: FC = () => {
   return (
     <div className="App">
       <div className = "header">
-        <div>
+        <div className='inputContainer'>
           <input type ="text" placeholder="Task..." />
           <input type ="number" placeholder="Expires in ... days" />
         </div>

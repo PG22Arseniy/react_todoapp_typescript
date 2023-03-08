@@ -15,3 +15,43 @@
   justify-content: center;
   align-items: center;
 }
+
+.header .inputContainer {
+  display: flex;
+  flex-direction: column;  
+}
+
+.header .inputContainer:hover {
+  border: solid aqua 2px; 
+}
+
+.header button {
+  width: 70px;
+  height: 87px;
+  border: none;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px; 
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: aqua; 
+}
+
+body {
+  margin: 0;
+  padding: 0; 
+}
+
+.header input { 
+  width: 200px;
+  height: 40px;
+  /* border: none; */ 
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+  padding-left: 10px;
+  font-size:  17px;
+  border: 1px solid gray;
+}
+
+ 
