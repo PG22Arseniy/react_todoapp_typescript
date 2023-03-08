@@ -54,4 +54,11 @@ body {
   border: 1px solid gray;
 }
 
+.todoList {
+
+  flex: 70%;
+  width: 100%; 
+
+}
+
  
