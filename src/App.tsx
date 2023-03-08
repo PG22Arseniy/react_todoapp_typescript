@@ -12,9 +12,7 @@ const App: FC = () => {
 
   // functions
   const handleTaskChange = (e:ChangeEvent<HTMLInputElement>): void => {
-    
     setTask (e.target.value)
-
   }
 
   const handleDeadlineChange = (e:ChangeEvent<HTMLInputElement>): void => {
@@ -28,6 +26,7 @@ const App: FC = () => {
 
   const handleTaskSubmit = (e:MouseEvent<HTMLButtonElement>): void => {
 
+    // new Task object 
     const newTask: ITask = {
       taskName: task,
       deadline: deadline,
@@ -35,13 +34,16 @@ const App: FC = () => {
     } 
     setTodoList([...todoList, newTask ]) 
 
+    // reste inputs
     resetInputs()
   }
 
 
   const completeTask = (taskToDelete: ITask) : void => {
+
+    // filtering through all todos in the list
     setTodoList(todoList.filter((task)=>{
-      return task != taskToDelete 
+      return task != taskToDelete;
     }))
   }
 
