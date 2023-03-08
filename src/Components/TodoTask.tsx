@@ -1,9 +1,26 @@
 import React from "react";
 import { ITask } from "../Interfaces";
-import { JsxElement } from "typescript";
 
-const TodoTask = (props:ITask) => { 
-    return <div> {props.taskName} {props.deadline} </div> 
+
+interface Props {
+    task: ITask;
+    completeTask(taskToDelete: ITask): void;
+}
+
+const TodoTask = ({task, completeTask}: Props) => { 
+    return (
+        <div className="task"> 
+
+            <div className="content">
+
+                <span>{task.taskName}</span>
+                <span>{task.deadline}</span>
+        
+                <button onClick={()=> {completeTask(task)}}> X  </button> 
+            </div>
+
+        </div> 
+    );
 };
 
 export default TodoTask; 

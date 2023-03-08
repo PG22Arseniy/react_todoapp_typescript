@@ -25,6 +25,7 @@ const App: FC = () => {
     setDeadline(deadline); 
   }
 
+
   const handleTaskSubmit = (e:MouseEvent<HTMLButtonElement>): void => {
 
     const newTask: ITask = {
@@ -35,6 +36,13 @@ const App: FC = () => {
     setTodoList([...todoList, newTask ]) 
 
     resetInputs()
+  }
+
+
+  const completeTask = (taskToDelete: ITask) : void => {
+    setTodoList(todoList.filter((task)=>{
+      return task != taskToDelete 
+    }))
   }
 
   const resetInputs = () => {
@@ -56,7 +64,7 @@ const App: FC = () => {
 
       <div className="todoList">
         {todoList.map ((task: ITask, key: number)=>{
-          return <TodoTask key={key} taskName= {task.taskName} deadline={task.deadline} isDone={task.isDone}/> })}
+          return <TodoTask key={key} task = {task} completeTask={completeTask}/> })}
       </div>
     </div>
   );
