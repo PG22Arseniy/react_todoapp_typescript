@@ -1,6 +1,7 @@
 import React, {FC, useState, ChangeEvent, MouseEvent} from 'react';
 import './App.css';
 import { ITask } from './Interfaces';
+import TodoTask from './Components/TodoTask';
 
 const App: FC = () => {
 
@@ -32,20 +33,30 @@ const App: FC = () => {
       isDone: false  
     } 
     setTodoList([...todoList, newTask ]) 
+
+    resetInputs()
   }
 
-  return (
+  const resetInputs = () => {
+
+    // input values depend on state values (in html)
+    setDeadline(0);
+    setTask(""); 
+  }
+
+  return ( 
     <div className="App">
       <div className = "header">
         <div className='inputContainer'>
-          <input onChange={handleTaskChange} name = "task" type ="text" placeholder="Task..." />
-          <input onChange={handleDeadlineChange} name = "deadline" type ="number" placeholder="Expires in ... days" />
+          <input onChange={handleTaskChange} value={task} name = "task" type ="text" placeholder="Task..." />
+          <input onChange={handleDeadlineChange} value={deadline} name = "deadline" type ="number" placeholder="Expires in ... days" />
         </div>
         <button onClick={handleTaskSubmit} name="taskSubmitBtn"> AddTask </button>  
       </div>
 
       <div className="todoList">
-
+        {todoList.map ((task: ITask, key: number)=>{
+          return <TodoTask key={key} taskName= {task.taskName} deadline={task.deadline} isDone={task.isDone}/> })}
       </div>
     </div>
   );
