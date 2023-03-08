@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './App.css';
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
+      <div className = "header">
+        <input type ="text" placeholder="Task..." />
+        <input type ="number" placeholder="Expires in ... days" />
+        <button> AddTask </button> 
+      </div>
 
+      <div className="todoList">
+
+      </div>
     </div>
   );
 }
